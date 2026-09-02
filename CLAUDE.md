@@ -128,3 +128,49 @@ Verbindliche Regeln:
     wenn keine bestätigten FL-Grid- und Mixxx-Beatgrid-Daten vorliegen.
 12. Der Handover ersetzt keine detaillierten Projektdateien,
     sondern ist nur die kompakte Übergabe zwischen Claude Code und Perplexity.
+
+## TOKEN-SPAR-MODUS
+
+1. Keine automatischen Check-ins, Trigger, Reminder, Background Tasks
+   oder periodischen PR-Prüfungen anlegen. Nur auf ausdrückliche
+   Nutzeranfrage reagieren.
+
+2. Keine doppelten vollständigen `PERPLEXITY_HANDOVER_V1`-Blöcke:
+   Wenn sich seit dem letzten Handover weder Branch, Commit, Working Tree,
+   Changed Paths, Tests noch PR-Status geändert haben, ausschließlich ausgeben:
+   `STATUS_UNCHANGED: kein neuer Handlungsbedarf.`
+
+3. Pro Turn genau einen klar abgegrenzten Task bearbeiten.
+   Keine Nebenaufgaben, keine automatischen Folgeaufgaben und kein
+   ungefragtes Monitoring.
+
+4. Nur konkret betroffene Dateien lesen. Niemals ungefragt das gesamte
+   Repository, alle Commits oder alle PR-Dateien laden.
+
+5. Vor Änderungen maximal acht kurze Planungspunkte ausgeben und auf die
+   ausdrückliche Nutzerfreigabe für Schreiboperationen warten.
+
+6. Nach Änderungen ausschließlich gezielte Prüfungen ausführen:
+   - `git diff --check`
+   - nur relevante YAML-/JSON-Validierung
+   - nur relevante Tests
+
+7. Vor jedem Commit oder Push zwingend ausgeben:
+   - Branch
+   - Changed Paths
+   - vollständigen `git diff --check`-Status
+   - kurze Diff-Zusammenfassung mit maximal acht Bullets
+   Danach ausdrücklich auf Freigabe warten.
+   Keine Formulierung wie „warte auf Freigabe", wenn Commit oder Push
+   bereits durchgeführt wurde.
+
+8. Nach einem erfolgreichen Commit nur einen kompakten Handover ausgeben:
+   Branch, Commit-SHA, Changed Paths, ausgeführte Tests, reale Risiken,
+   nächster erlaubter Schritt.
+
+9. Keine Anthropic API-Credits, Claude Usage Credits, kostenpflichtigen
+   Drittanbieter-Modelle oder kostenpflichtigen Dienste aktivieren oder
+   verwenden, ohne meine ausdrückliche Freigabe.
+
+10. TOKEN-SPAR-MODUS ändert niemals die verbindlichen Sicherheits-,
+    Evidenz-, FL-Studio- und Mixxx-Freigaberegeln.
