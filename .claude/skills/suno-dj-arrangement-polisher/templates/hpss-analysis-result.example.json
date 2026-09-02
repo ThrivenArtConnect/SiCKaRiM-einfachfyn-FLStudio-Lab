@@ -22,6 +22,7 @@
   },
   "downbeat_candidates": [],
   "phrase_candidates": [],
+  "structure_confidence": null,
   "audio_qc": {
     "integrated_lufs": null,
     "true_peak_dbtp": null,

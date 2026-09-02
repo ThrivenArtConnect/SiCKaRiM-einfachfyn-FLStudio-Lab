@@ -497,6 +497,105 @@ Bei `UNVALIDATED`, `ANALYSIS_PENDING`, `ANALYSIS_REVIEW_REQUIRED` oder
 ### REQUIRED_MIXXX_CHECK
 ```
 
+## 9.1a Die fünf Extend-Bedingungen
+
+Der Statuscheck aus 9.1 ist notwendig, aber nicht hinreichend. Ein Extend
+entsteht nur, wenn **alle fünf** Bedingungen erfüllt sind. Jede einzelne
+nicht erfüllte Bedingung blockiert.
+
+| # | Bedingung | Erfüllt, wenn | Nicht erfüllt → |
+|---|---|---|---|
+| A | Strukturvertrauen | `structure_confidence >= 0.85` im HPSS-Report ODER der Nutzer bestätigt die Struktur ausdrücklich | blockieren |
+| B | Style-String 1:1 | Der Style-String des Quelltracks wurde wortgleich übernommen, ohne Rewrite und ohne Paraphrase | blockieren |
+| C | Vocal Anchor | Die erste Gesangszeile des aktuellen Parts ist im Extend-Text wörtlich wiederholt — nur bei Vocal-Extends; bei instrumentalem Extend gilt die Bedingung als nicht anwendbar | blockieren, sofern anwendbar |
+| D | Längenfenster | Aktuelle Länge < 4:00 min ODER `[Outro]`-Tag fehlt noch | blockieren |
+| E | Menschliche Freigabe | Nutzer hat FL-Studio- **und** Mixxx-Check bestätigt; bis dahin gilt `MIXXX_READY: false` | blockieren |
+
+### Zu Bedingung A — `structure_confidence`
+
+`structure_confidence` ist ein Feld des HPSS-Reports aus
+`ThrivenArtConnect/hard-tekk-hpss-pipeline`, das die Zuverlässigkeit der
+erkannten Songstruktur als Zahl zwischen 0 und 1 angibt.
+
+Wichtig, damit hier keine Scheinsicherheit entsteht:
+
+- Fehlt das Feld im Report, ist es `null`, oder ist der Report nicht
+  lesbar, gilt Bedingung A als **nicht erfüllt**. Nie einen Wert schätzen,
+  nie aus `tempo.confidence` oder `beats.confidence` ableiten — das sind
+  andere Größen.
+- Ein hoher `structure_confidence` ersetzt Bedingung E nicht. A und E sind
+  eigenständige UND-Bedingungen: Der Maschinenwert darf die Struktur-Frage
+  beantworten, niemals die Frage, ob ein Mensch den Track am Grid geprüft hat.
+- Der Schwellwert 0.85 ist eine Projektfestlegung, kein von der Pipeline
+  vorgegebener Wert.
+
+### Zu Bedingung B — Style-String 1:1
+
+Suno konditioniert die Fortsetzung auf den Style-String. Wird er
+umformuliert, driftet der Extend hörbar vom Quelltrack weg, auch wenn die
+Umformulierung inhaltlich dasselbe meint. Deshalb: kopieren, nicht
+neu schreiben. Auch nicht "leicht aufräumen".
+
+Soll der Style bewusst geändert werden, ist das kein Extend im Sinne dieses
+Skills — dann ist es ein neuer Track oder ein `REPLACEMENT_SECTION`, und der
+Nutzer muss die Änderung ausdrücklich anweisen.
+
+### Zu Bedingung C — Vocal Anchor
+
+Bei einem Vocal-Extend wird die erste Gesangszeile des aktuellen Parts
+wörtlich an den Anfang des Extend-Textes gesetzt. Sie dient Suno als
+Anker für Stimmfarbe und Phrasierung.
+
+Zwei Einschränkungen:
+
+- Der Anker ist eine Wiederholung bereits vorhandener, vom Nutzer
+  gelieferter Lyrics. Er ist **keine** Lizenz, neue Lyrics zu erfinden.
+- Bei einem instrumentalen Extend — dem Regelfall für DJ-Outro, Drop 2 und
+  Break — gibt es keine Gesangszeile. Dann ist Bedingung C nicht anwendbar
+  und blockiert nicht. Das ausdrücklich so vermerken, statt sie stillschweigend
+  als erfüllt zu behandeln.
+
+### Zu Bedingung D — Längenfenster
+
+Die aktuelle Länge stammt aus der Datei oder aus einer ausdrücklichen
+Nutzerangabe, nie aus einer Schätzung. Ist sie unbekannt, gilt D als nicht
+erfüllt.
+
+Der Sinn: Ein Track jenseits von 4:00 min mit gesetztem `[Outro]` ist
+arrangementseitig abgeschlossen. Ein Extend hängt dort meist einen zweiten
+Schluss an, statt den Track zu verlängern.
+
+## 9.1b Ausgabe der Bedingungsprüfung
+
+Jede Extend-Anfrage gibt die Prüfung sichtbar aus, auch wenn sie durchgeht.
+So sieht der Nutzer, worauf die Entscheidung beruht:
+
+```
+### EXTEND_CONDITION_CHECK
+
+| # | Bedingung | Status | Evidenz |
+|---|---|---|---|
+| A | structure_confidence >= 0.85 oder menschliche Bestätigung | MET / NOT MET / NOT PROVIDED | <Quelle> |
+| B | Style-String 1:1 übernommen | MET / NOT MET | <Quelle> |
+| C | Vocal anchor wiederholt | MET / NOT MET / NOT APPLICABLE | <Quelle> |
+| D | Länge < 4:00 min oder [Outro] fehlt | MET / NOT MET / NOT PROVIDED | <Quelle> |
+| E | FL Studio und Mixxx vom Menschen bestätigt | MET / NOT MET | <Quelle> |
+```
+
+Ergebnis:
+
+- **Alle fünf erfüllt** (C darf `NOT APPLICABLE` sein) → `EXTEND_STATUS: EXTEND_ALLOWED`,
+  Extend-Paket nach 9.5 erzeugen.
+- **Mindestens eine nicht erfüllt** → `EXTEND_STATUS: EXTEND_BLOCKED`,
+  Ausgabe nach 9.1, und in `MISSING_EXTEND_EVIDENCE` jede nicht erfüllte
+  Bedingung mit Begründung nennen — nicht nur auflisten, sondern sagen,
+  welche konkrete Angabe fehlt und woher sie kommt.
+
+`EXTEND_ALLOWED` und `EXTEND_BLOCKED` sind Entscheidungen über eine einzelne
+Extend-Anfrage, keine Track-Stati. Der `TRACK_STATUS` aus Abschnitt 3 bleibt
+davon unberührt: Er ändert sich erst durch neue menschliche Evidenz, nie
+dadurch, dass eine Extend-Prüfung durchgeht.
+
 ## 9.2 Pflichtdaten für Extend
 
 Diese Werte müssen explizit vom Nutzer geliefert oder in einer bestätigten
@@ -853,8 +952,11 @@ fehlgeschlagener Report. Nur die Inhalte unterscheiden sich, die Blöcke nicht.
 
 ## Extend blockiert
 
+Vorangestellt immer `### EXTEND_CONDITION_CHECK` nach Abschnitt 9.1b.
+
 ```
 ### TRACK_STATUS
+### EXTEND_CONDITION_CHECK
 ### EXTEND_BLOCKED
 ### MISSING_EXTEND_EVIDENCE
 ### REQUIRED_FL_STUDIO_CHECK
@@ -863,8 +965,11 @@ fehlgeschlagener Report. Nur die Inhalte unterscheiden sich, die Blöcke nicht.
 
 ## Extend erlaubt
 
+Vorangestellt immer `### EXTEND_CONDITION_CHECK` nach Abschnitt 9.1b.
+
 ```
 ### TRACK_STATUS
+### EXTEND_CONDITION_CHECK
 ### CONFIRMED_CONTEXT
 ### SUNO_EXTEND_STYLE
 ### SUNO_EXTEND_LYRICS_OR_CUES
