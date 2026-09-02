@@ -128,3 +128,18 @@ Verbindliche Regeln:
     wenn keine bestätigten FL-Grid- und Mixxx-Beatgrid-Daten vorliegen.
 12. Der Handover ersetzt keine detaillierten Projektdateien,
     sondern ist nur die kompakte Übergabe zwischen Claude Code und Perplexity.
+
+## TOKEN-SPAR-MODUS
+
+Zur Kontextoptimierung bei längeren Sessions kann TOKEN-SPAR-MODUS aktiviert werden.
+In diesem Modus gelten folgende zusätzliche Richtlinien:
+
+- Priorisiere Bash-Befehle statt umfassender UI-Reports
+- Fasse Ausgaben auf essenzielle Informationen beschränken
+- Nutze git-native Werkzeuge und vermeiden Redundanzen in der Ausgabegenerierung
+- Antworte prägnant: max. 8 Bullets pro Zusammenfassung, keine ausschweifenden Erklärungen
+- Dokumentiere nur nachweislich neue oder geänderte Dateien
+- Handhabe Handover-Blocks mit derselben Sorgfalt wie im Standard-Modus
+
+TOKEN-SPAR-MODUS ändert nichts an den Verbindlichen Regeln (1–12) oben.
+Sicherheit, Korrektheit und Nachvollziehbarkeit bleiben oberste Priorität.
