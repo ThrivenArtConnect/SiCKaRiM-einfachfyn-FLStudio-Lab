@@ -786,6 +786,63 @@ Sie darf niemals automatisch setzen:
 
 Maximal zulässiger automatischer Status: `ANALYSIS_REVIEW_REQUIRED`.
 
+## HPSS_STATUS — eigene Statusachse für Stems
+
+`HPSS_STATUS` beschreibt den Zustand der **Stems** aus der Pipeline.
+`TRACK_STATUS` aus Abschnitt 3 beschreibt den Zustand des **Songs**. Beide
+laufen getrennt und dürfen nie gegeneinander verrechnet werden: geprüfte
+Stems machen keinen geprüften Song, und ein `MIXXX_READY`-Song sagt nichts
+über die Stems.
+
+Um die Verwechslung im Text zu vermeiden, wird der Stem-Status immer mit
+Präfix geschrieben: `HPSS_STATUS: MIXXX_READY`, nie bloß `MIXXX_READY`.
+
+### HPSS_STATUS: CANDIDATE
+
+Der Startzustand jedes Reports und jedes Stem-Satzes. Alle Werte sind
+Kandidaten, nichts ist bestätigt. Bleibt so, bis alle drei Checks unten
+erfüllt sind.
+
+### HPSS_STATUS: MIXXX_READY
+
+Nur erreichbar, wenn **alle drei** Checks erfüllt und vom Nutzer bestätigt sind:
+
+| # | Check | Erfüllt, wenn |
+|---|---|---|
+| 1 | FL Studio | Stems als 32-bit / 48 kHz exportiert und in der Playlist geladen |
+| 2 | Mixxx | Stems importiert, BPM- und Key-Sync geprüft, keine Phasenprobleme |
+| 3 | Mensch | Nutzer bestätigt beide Checks ausdrücklich |
+
+Check 3 ist keine Formalie, sondern die eigentliche Bedingung: Der Skill
+sieht die Stems nicht und hört sie nicht. Ohne die ausdrückliche Bestätigung
+bleibt der Status `CANDIDATE`, auch wenn der Nutzer Check 1 und 2 beschreibt.
+Ein HPSS-Report allein hebt den Status nie an.
+
+### HPSS_STATUS: FAILED
+
+Zu setzen, sobald einer dieser Befunde vorliegt:
+
+| Befund | Kriterium |
+|---|---|
+| Vocal-Bleed im Drum-Stem | > 5 % — objektiv gemessen oder vom Nutzer klar hörbar berichtet |
+| Phasenprobleme Kick/Bass | Kick verliert im Zusammenspiel mit dem Bass hörbar Punch |
+
+Zur 5-%-Schwelle: Sie ist eine Projektfestlegung. Der Skill misst nichts
+selbst — er übernimmt entweder einen gemessenen Wert aus dem Report oder die
+Höreinschätzung des Nutzers. Liegt keins von beidem vor, ist der Befund
+`NOT ASSESSED`, nicht "unter der Schwelle".
+
+`FAILED` ist kein Endzustand: Nach einem neuen Split oder korrigierten
+Export beginnt die Prüfung wieder bei `CANDIDATE`.
+
+### Was HPSS_STATUS niemals darf
+
+- Sich selbst von `CANDIDATE` hochsetzen.
+- `TRACK_STATUS` verändern — auch `HPSS_STATUS: MIXXX_READY` gibt kein
+  Extend frei und erfüllt Bedingung E aus 9.1a nicht.
+- Als "final", "fertig" oder "abgenommen" bezeichnet werden, solange die
+  menschliche Bestätigung fehlt.
+
 ## Verhalten bei vorliegendem HPSS-Report
 
 Wenn ein valider HPSS-JSON-Report existiert:
