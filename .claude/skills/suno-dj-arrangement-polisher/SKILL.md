@@ -376,6 +376,67 @@ fest.
 
 ---
 
+# 4b. Export-Workflow
+
+## 4b.1 Workflow-Tabelle
+
+| Use Case | Export-Option | Format | Bit-Tiefe | Sample Rate |
+|---|---|---|---|---|
+| Final Master | Full Song | WAV | 32-bit | 48 kHz |
+| DJ-Set | Full Song | WAV + MP3 | 16-bit / 32-bit | 44.1 kHz / 48 kHz |
+| Remix / DAW | Multitrack | WAV (alle Stems) | 32-bit | 48 kHz |
+| Einzelne Spur | Individual Stem | WAV | 32-bit | 48 kHz |
+| MIDI-Weiterverarbeitung | Download as MIDI | MIDI | – | – |
+
+**Verifikationsstatus:** Die Tabelle ist die Ziel-Vorgabe des Projekts, keine
+Abschrift der Suno-Oberfläche. Welche Optionen, Bit-Tiefen und Sample-Rates
+Suno im Moment tatsächlich anbietet, ändert sich mit der Plattform — besonders
+`Download as MIDI` und die 32-bit-Option sind vor dem ersten Einsatz einmal
+am eigenen Account gegenzuprüfen. Bietet die Oberfläche etwas nicht an: die
+nächstbeste Option nehmen und das hier vermerken, nicht behaupten, es sei
+exportiert worden.
+
+## 4b.2 Wann welche Option
+
+**Final Master — Full Song, WAV, höchste verfügbare Qualität.**
+Für die Version, die archiviert wird und aus der alles andere abgeleitet
+wird. Immer zuerst ziehen, bevor irgendetwas anderes passiert: Alle weiteren
+Formate lassen sich daraus erzeugen, umgekehrt nicht.
+
+**DJ-Set — Full Song, WAV und MP3.**
+WAV geht nach Mixxx und in die FL-Studio-QC, MP3 als Platzsparer für
+Vorhör-Ordner und Mobilgeräte. 44.1 kHz nur, wenn die Zielumgebung es
+verlangt; wo beides geht, 48 kHz behalten und das Resampling der DAW
+überlassen statt Suno.
+
+**Remix / DAW — Multitrack, alle Stems.**
+Nur wenn der Track wirklich weiterverarbeitet wird. Ein vollständiger
+Stem-Satz kostet deutlich mehr Credits als ein Mixdown (siehe 4c) und
+erzeugt Dateien, die nach der HPSS-Prüfung aus Abschnitt 10 verlangen.
+
+**Einzelne Spur — Individual Stem.**
+Wenn nur ein Element gebraucht wird, etwa die Lead-Vocal für einen
+Library-Shout oder der Kick zum Ersetzen. Deutlich günstiger als der
+volle Split.
+
+**MIDI — nur für Weiterverarbeitung der Noten.**
+Für Bassläufe oder Leads, die in FL Studio mit eigenen Sounds neu gespielt
+werden. MIDI trägt keine Klangfarbe; wer den Suno-Sound will, braucht Audio.
+
+## 4b.3 Regeln für jeden Export
+
+1. Den Final Master zuerst ziehen und nie überschreiben. Jede Extend- oder
+   Remix-Version bekommt einen neuen Dateinamen mit Versionszähler.
+2. Bit-Tiefe und Sample-Rate der geladenen Datei in FL Studio prüfen, statt
+   sie aus der Export-Auswahl zu schließen — was im Dialog stand, muss nicht
+   in der Datei stehen.
+3. Stems erst prüfen, dann verwenden: `HPSS_STATUS` bleibt `CANDIDATE`, bis
+   die drei Checks aus Abschnitt 10 bestätigt sind.
+4. Keine WAVs, MP3s, Stems oder MIDI-Dateien ins Repository committen. Ins
+   Repo gehören nur die Validierungsblätter und Library-Einträge.
+
+---
+
 # 5. Suno Sounds Library Builder
 
 Pro Anfrage wird nur **ein** klarer Sound-Typ erzeugt. Mehrere
