@@ -269,6 +269,113 @@ Taktraster. Die reale Taktzahl steht erst nach der FL-Prüfung fest.
 
 ---
 
+# 4a. Prompt-Grammatik — Standardvorlagen
+
+Die Vorlagen hier sind copy-paste-fähig. Sie stehen unter den Regeln aus
+Abschnitt 4; wo sich beides widerspricht, gewinnt Abschnitt 4.
+
+## 4a.1 Style-Template
+
+```text
+Hard Tekk, 165 BPM, dark distorted kick, rolling bass, rave lead, psy movement, raw transitions, [Mastered for 48kHz], [High Dynamic Range], [Ultra-Clean Vocals], [Pre-amp: Balanced], [Headroom: High]
+```
+
+165 BPM ist der Projekt-Default. Nennt der Nutzer einen Trackwert, ersetzt
+dieser ihn — der Rest der Zeile bleibt unverändert.
+
+### Verifikationsstatus der Metatags
+
+Die eckigen Klammern am Ende — `[Mastered for 48kHz]`, `[High Dynamic Range]`,
+`[Ultra-Clean Vocals]`, `[Pre-amp: Balanced]`, `[Headroom: High]` — sind
+**unverifizierte Prompt-Konditionierung**, keine dokumentierten Suno-Regler.
+
+Was das praktisch heißt:
+
+- Sie sind freier Text im Style-Feld. Suno liest sie als Beschreibung, nicht
+  als Einstellung.
+- `[Mastered for 48kHz]` erzwingt **keine** 48-kHz-Ausgabe. Die tatsächliche
+  Sample-Rate der Datei entscheidet sich beim Export, nicht im Prompt, und
+  wird in FL Studio geprüft.
+- `[Ultra-Clean Vocals]` ist kein Garant für saubere Stimmen und hebt die
+  Vocal-Regeln aus Abschnitt 4 nicht auf.
+- Sie dürfen im Prompt stehen und schaden nicht. Sie dürfen dem Nutzer
+  gegenüber nie als zugesicherte technische Wirkung dargestellt werden.
+
+Wer belastbare 48 kHz und Headroom will, holt sie über den Export-Workflow
+in Abschnitt 4b und die FL-Studio-QC — nicht über Klammern im Prompt.
+
+## 4a.2 Lyrics-Template mit Struktur-Tags
+
+```text
+[Intro] (Instrumental)
+[Verse 1] (warm male lead vocal, close and restrained)
+[Chorus]
+[Bridge]
+[Outro] (Instrumental fade)
+```
+
+### Wann dieses Template gilt — und wann nicht
+
+Dies ist die **generische** Song-Struktur für Suno. Für einen SiCKaRiM-
+Track im Modus `SONG_NEW` oder `SONG_POLISH` gilt sie **nicht** unverändert,
+weil sie mit `[Verse 1]`, `[Chorus]` und `[Bridge]` drei singende Abschnitte
+vorsieht. Die Song-Vocal-Regel aus Abschnitt 4 erlaubt genau einen Hook.
+
+Daraus folgt die Vorrangregel:
+
+| Fall | Welches Template |
+|---|---|
+| SiCKaRiM-Track, Modus SONG_NEW / SONG_POLISH | Struktur aus Abschnitt 4 (DJ Intro → Build → Drop → **ein** Hook → Break → Build 2 → Drop 2 → DJ Outro), niemals dieses generische Template |
+| Generischer Suno-Track außerhalb des SiCKaRiM-Profils, ausdrücklich vom Nutzer verlangt | Template oben, mit den vom Nutzer gelieferten Lyrics |
+| Unklar | nachfragen, nicht raten |
+
+Die Klammerregie wie `(warm male lead vocal, close and restrained)` ist ein
+Beispiel für eine Stimmbeschreibung. Sie erfindet keine Lyrics und ersetzt
+keine: Text kommt ausschließlich vom Nutzer.
+
+Der `[Outro] (Instrumental fade)`-Tag ist zusätzlich für Bedingung D des
+Extend-Gates relevant — siehe 9.1a.
+
+## 4a.3 Production-Words statt Emotion-Words
+
+Prompts beschreiben, was im Signal passiert, nicht wie es sich anfühlen soll.
+Emotionsvokabular und Künstlernamen streuen das Ergebnis und machen zwei
+Renders schwer vergleichbar; technische Begriffe engen es ein.
+
+| Nicht verwenden | Stattdessen |
+|---|---|
+| epic, emotional, powerful, energetic, hypnotic feeling | distorted kick, rolling bass, sidechained pad, gated release |
+| dark and sad, aggressive mood | minor key, detuned saw, hard filter bite |
+| Künstler- oder Bandnamen, "im Stil von X" | die konkreten Klangmerkmale, die gemeint sind |
+| radio-ready, professional, banger | loud club mix, kick and sub locked, mid-forward stabs |
+
+Künstlernamen bleiben auch deshalb draußen, weil sie fremde Arbeit als
+Zielvorgabe benutzen. Die gewünschten Merkmale lassen sich benennen, ohne
+jemanden zu kopieren.
+
+## 4a.4 Style-String bei jedem Extend wiederholen
+
+Der Style-String des Quelltracks wird bei jedem Extend wortgleich
+übernommen. Kein Rewrite, keine Paraphrase, kein "leicht aufgeräumt".
+Das ist Bedingung B des Extend-Gates (9.1a) und dort begründet.
+
+## 4a.5 Metatag-Liste High-Fidelity
+
+| Metatag | Zweck laut Prompt-Praxis | Verifikationsstatus |
+|---|---|---|
+| `[Mastered for 48kHz]` | Sample-Rate-Hinweis | UNVERIFIED — kein dokumentierter Suno-Regler |
+| `[High Dynamic Range]` | weniger Kompression | UNVERIFIED |
+| `[Ultra-Clean Vocals]` | Artefaktarme Stimmen | UNVERIFIED |
+| `[Pre-amp: Balanced]` | ausgewogener Pegel | UNVERIFIED |
+| `[Headroom: High]` | Reserve vor 0 dBFS | UNVERIFIED |
+
+Alle fünf sind zulässig und dürfen zusammen im Style-Feld stehen. Keiner
+darf als zugesicherte Eigenschaft der Ausgabedatei ausgegeben werden. Was
+die Datei wirklich hat, steht erst nach dem Export und der FL-Studio-Prüfung
+fest.
+
+---
+
 # 5. Suno Sounds Library Builder
 
 Pro Anfrage wird nur **ein** klarer Sound-Typ erzeugt. Mehrere
