@@ -22,7 +22,7 @@ Key: Any
 ### SOUND_PROMPT
 
 ```text
-Dark underground hard tekk percussion loop, 160 BPM target, straight 4/4 target, seamless loop, one-bar loop target. Tight dry rave percussion only: short closed hats, offbeat open hat accents, dry rimshot, metallic industrial tick, subtle shaker. Raw analog character, light saturation, tight transients, small dry room, no long reverb tail. No kick drum, no bassline, no sub, no vocals, no melody, no chords, no pads.
+Dark underground hard tekk percussion loop, 160 BPM target, straight 4/4 target, seamless loop, one-bar loop target. Tight dry rave percussion only: short closed hats, offbeat open hat accents, dry rimshot, metallic industrial tick, subtle shaker. Raw analog character, light saturation, tight transients, small dry room, no long reverb tail, no kick drum, no bassline, no sub, no vocals, no melody, no chords, no pads.
 ```
 
 ### LIBRARY_METADATA
@@ -234,7 +234,7 @@ Key: Any
 ### SOUND_PROMPT
 
 ```text
-Single German rave vocal shout, one short phrase only: "KEIN SCHLAF!". Dark, raw, forceful, dry close vocal, subtle saturation, short reverb tail. Aggressive underground rave delivery, shouted not sung. No singing, no rap, no backing vocals, no music.
+Single German rave vocal shout, one short phrase only: "KEIN SCHLAF!". Dark, raw, forceful, dry close vocal, subtle saturation, short reverb tail. Aggressive underground rave delivery, shouted not sung, no singing, no rap, no backing vocals, no music.
 ```
 
 ### LIBRARY_METADATA

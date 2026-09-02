@@ -312,6 +312,25 @@ Kein Kick und kein Bass in Percussion-Loops, wenn sie später mit einem
 eigenen Kick-/Sub-System kombiniert werden sollen — sonst kollidieren
 zwei Kicks und der Sub wird unkontrollierbar.
 
+Diese Ausschlüsse gehören verbindlich als englische Strings in den
+`SOUND_PROMPT`, nicht nur als deutsche Umschreibung in der Erklärung.
+Für jeden Percussion-Loop, der mit einem eigenen Kick-/Sub-System
+kombiniert werden soll, muss der Prompt wörtlich enthalten:
+
+- `no kick drum`
+- `no bassline`
+
+Der Grund für die Wortgleichheit: Formulierungen wie "no kick" oder
+"without bass" lenken Suno erfahrungsgemäß schwächer, und ein
+maschineller QC-Durchlauf über die Library findet sie nicht wieder.
+
+Diese beiden Strings ergänzen die Pflichtbestandteile oben, sie ersetzen
+sie nicht — `seamless loop` und `one-bar loop target` bzw.
+`two-bar loop target` bleiben zusätzlich erforderlich. Auch mit allen
+vier Strings bleibt es dabei: der Prompt lenkt Suno, er sichert keinen
+nahtlosen Loop zu. Ob die Naht trägt, entscheidet der Wiederholungstest
+in FL Studio.
+
 Bei Bass-/Rumble-Loops klar vermerken: Sub-Anteil später in FL Studio
 prüfen; im Zweifel nur als Mid-/Texture-Layer verwenden.
 
@@ -700,8 +719,44 @@ kein valides JSON lesbar ist oder eine Pipeline-Analyse fehlschlägt:
 - Song- und Sounds-Payloads bleiben verfügbar.
 - Extend bleibt blockiert.
 - Den lokalen FL-Studio- und Mixxx-Validierungsplan ausgeben.
-- Klar ausgeben:
+
+Auch der Fehlerfall nutzt verbindlich dieselbe Blockstruktur wie eine
+erfolgreiche Analyse — sonst sieht jede fehlgeschlagene Prüfung anders aus
+und lässt sich weder vergleichen noch maschinell abnehmen:
+
+```
+### TRACK_STATUS
+### HPSS_ANALYSIS_SUMMARY
+### HPSS_CANDIDATE_REVIEW_TABLE
+### REQUIRED_FL_STUDIO_CHECK
+### REQUIRED_MIXXX_CHECK
+### EXTEND_ELIGIBILITY
+```
+
+Inhaltliche Vorgaben für diesen Fehlerfall:
+
+- `TRACK_STATUS`: `UNVALIDATED`.
+- `HPSS_ANALYSIS_SUMMARY` enthält wörtlich:
   `HPSS analysis unavailable — manual FL Studio validation required.`
+  Dazu ein Satz, woran die Analyse gescheitert ist (Datei nicht gefunden,
+  JSON nicht parsebar, Pipeline-Lauf fehlgeschlagen) — ohne Spekulation
+  über die Audiodatei selbst.
+- `HPSS_CANDIDATE_REVIEW_TABLE` behält den Spaltenkopf, enthält aber keine
+  erfundenen Kandidaten. Jede Zelle steht auf `NOT YET PROVIDED` oder
+  `NOT AVAILABLE`.
+- `REQUIRED_FL_STUDIO_CHECK` enthält den lokalen FL-Studio-Validierungsplan
+  aus Abschnitt 6.
+- `REQUIRED_MIXXX_CHECK` enthält den lokalen Mixxx-Validierungsplan aus
+  Abschnitt 7.
+- `EXTEND_ELIGIBILITY` lautet wörtlich:
+  `EXTEND BLOCKED — pipeline candidates require human FL Studio and Mixxx verification.`
+
+Ausdrücklich nicht erlaubt, auch nicht als Schätzung oder Vorschlag:
+
+- geschätztes BPM,
+- bestätigter Downbeat,
+- Cue-Zeit oder FL-Bar:Beat-Position,
+- Extend-Paket.
 
 ## Netzwerk-Regel
 
@@ -783,6 +838,9 @@ Wenn Informationen fehlen:
 ```
 
 ## HPSS-Report-Prüfung
+
+Gilt für beide Fälle — gültiger Report und fehlender, unlesbarer oder
+fehlgeschlagener Report. Nur die Inhalte unterscheiden sich, die Blöcke nicht.
 
 ```
 ### TRACK_STATUS

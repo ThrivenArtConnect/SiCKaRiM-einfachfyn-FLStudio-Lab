@@ -89,8 +89,9 @@ auftauchen oder eine Taktzahl zugesichert wird.
 - [ ] Vier Blöcke: `SOUND_SETTINGS`, `SOUND_PROMPT`, `LIBRARY_METADATA`,
       `FL_STUDIO_QC`.
 - [ ] `Type: Loop`, `BPM: 160`, `Key: Any`.
-- [ ] Prompt enthält "no kick drum", "no bassline" und "seamless loop".
-- [ ] Prompt nennt "one-bar loop" oder "two-bar loop" als Ziel.
+- [ ] Prompt enthält die exakten Strings, case-sensitive geprüft:
+      `no kick drum`, `no bassline`, `seamless loop`.
+- [ ] Prompt nennt "one-bar loop target" oder "two-bar loop target" als Ziel.
 - [ ] Dateiname nach Schema `SKM_LOOP_PERC_<CHARACTER>_160_ANY_001.wav`.
 - [ ] `STATUS: UNVALIDATED`.
 - [ ] FL-QC nennt den Wiederholungstest mit mindestens acht Durchläufen.
@@ -128,7 +129,9 @@ F-Moll gesetzt wird.
 - [ ] Modus `SOUNDS_ONE_SHOT`.
 - [ ] `Type: One-Shot`, `BPM: Auto`, `Key: Any`.
 - [ ] Genau die gelieferte Phrase, kein zusätzlicher Text.
-- [ ] Prompt enthält "no singing, no rap, no backing vocals, no music".
+- [ ] Prompt enthält den exakten String, case-sensitive und
+      zusammenhängend geprüft:
+      `no singing, no rap, no backing vocals, no music`.
 - [ ] Dateiname nach Schema, z. B.
       `SKM_ONESHOT_VOX_KeinSchlaf_AUTO_ANY_001.wav`.
 - [ ] `STATUS: UNVALIDATED`.
@@ -178,8 +181,24 @@ freigegeben wird.
 - [ ] Lokaler FL-Studio- und Mixxx-Validierungsplan wird ausgegeben.
 - [ ] Song- und Sounds-Payloads bleiben weiterhin möglich.
 - [ ] Extend bleibt blockiert.
+- [ ] Ausgabe nutzt exakt diese sechs Überschriften in dieser Reihenfolge —
+      identisch zum Erfolgsfall, nur mit anderen Inhalten:
+      `### TRACK_STATUS`, `### HPSS_ANALYSIS_SUMMARY`,
+      `### HPSS_CANDIDATE_REVIEW_TABLE`, `### REQUIRED_FL_STUDIO_CHECK`,
+      `### REQUIRED_MIXXX_CHECK`, `### EXTEND_ELIGIBILITY`.
+- [ ] Der Pflichtsatz steht in `HPSS_ANALYSIS_SUMMARY`, zusammen mit einem
+      Satz zur Fehlerursache (Datei fehlt, JSON nicht parsebar,
+      Pipeline-Lauf fehlgeschlagen).
+- [ ] `HPSS_CANDIDATE_REVIEW_TABLE` behält den Spaltenkopf und enthält
+      keine erfundenen Kandidaten, sondern durchgehend
+      `NOT YET PROVIDED` oder `NOT AVAILABLE`.
+- [ ] `EXTEND_ELIGIBILITY` lautet wörtlich:
+      `EXTEND BLOCKED — pipeline candidates require human FL Studio and Mixxx verification.`
+- [ ] Keine Cue-Zeit und keine FL-Bar:Beat-Position in der Ausgabe.
 
-**Fehlschlag, wenn:** eine eigene BPM- oder Downbeat-Schätzung erfolgt.
+**Fehlschlag, wenn:** eine eigene BPM- oder Downbeat-Schätzung erfolgt, ein
+Block fehlt, die Reihenfolge abweicht oder die Kandidatentabelle
+Platzhalterwerte als Kandidaten ausgibt.
 
 ---
 
