@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "analyzer": "hard-tekk-hpss-pipeline",
+  "analyzer_version": "NOT_YET_VERIFIED",
+  "job_id": "NOT_YET_VERIFIED",
+  "source_file": "NOT_YET_VERIFIED",
+  "source_sha256": "NOT_YET_VERIFIED",
+  "created_at": "NOT_YET_VERIFIED",
+  "audio": {
+    "duration_seconds": null,
+    "sample_rate_hz": null,
+    "channels": null
+  },
+  "tempo": {
+    "estimated_bpm": null,
+    "confidence": null,
+    "stability": "unknown"
+  },
+  "beats": {
+    "timestamps_seconds": [],
+    "confidence": null
+  },
+  "downbeat_candidates": [],
+  "phrase_candidates": [],
+  "audio_qc": {
+    "integrated_lufs": null,
+    "true_peak_dbtp": null,
+    "clipping_suspected": null,
+    "notes": []
+  },
+  "loop_qc": {
+    "applicable": false,
+    "seam_difference_score": null,
+    "recommendation": "not_applicable"
+  },
+  "validation_policy": {
+    "automatic_status_maximum": "ANALYSIS_REVIEW_REQUIRED",
+    "human_fl_confirmation_required": true,
+    "human_mixxx_confirmation_required": true
+  }
+}

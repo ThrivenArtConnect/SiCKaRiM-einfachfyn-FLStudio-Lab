@@ -1,0 +1,70 @@
+track:
+  artist: SiCKaRiM
+  title: NOT_YET_VERIFIED
+  version: NOT_YET_VERIFIED
+  source_wav: NOT_YET_VERIFIED
+
+validation:
+  status: UNVALIDATED
+  target_bpm: NOT_YET_VERIFIED
+  actual_bpm: NOT_YET_VERIFIED
+  fl_grid_verified: false
+  mixxx_beatgrid_verified: false
+  checked_by: NOT_YET_VERIFIED
+  checked_date: NOT_YET_VERIFIED
+
+phases:
+  - cue_id: C1
+    name: INTRO_START
+    fl_position: NOT_YET_VERIFIED
+    timestamp: NOT_YET_VERIFIED
+    verified: false
+    note: First real kick downbeat
+
+  - cue_id: C2
+    name: BUILD_1
+    fl_position: NOT_YET_VERIFIED
+    timestamp: NOT_YET_VERIFIED
+    verified: false
+    note: NOT_YET_VERIFIED
+
+  - cue_id: C3
+    name: DROP_1
+    fl_position: NOT_YET_VERIFIED
+    timestamp: NOT_YET_VERIFIED
+    verified: false
+    note: NOT_YET_VERIFIED
+
+  - cue_id: C4
+    name: HOOK_START
+    fl_position: NOT_YET_VERIFIED
+    timestamp: NOT_YET_VERIFIED
+    verified: false
+    note: First audible hook syllable
+
+  - cue_id: C5
+    name: BREAK_START
+    fl_position: NOT_YET_VERIFIED
+    timestamp: NOT_YET_VERIFIED
+    verified: false
+    note: NOT_YET_VERIFIED
+
+  - cue_id: C6
+    name: DROP_2
+    fl_position: NOT_YET_VERIFIED
+    timestamp: NOT_YET_VERIFIED
+    verified: false
+    note: NOT_YET_VERIFIED
+
+  - cue_id: C7
+    name: OUTRO_START
+    fl_position: NOT_YET_VERIFIED
+    timestamp: NOT_YET_VERIFIED
+    verified: false
+    note: First reduced DJ-outro downbeat
+
+extend_request:
+  extend_target: NOT_YET_SELECTED
+  extend_from_cue: NOT_YET_SELECTED
+  vocal_mode: instrumental_only
+  request: NOT_YET_VERIFIED
