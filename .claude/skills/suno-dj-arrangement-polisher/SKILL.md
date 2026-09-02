@@ -269,6 +269,240 @@ Taktraster. Die reale Taktzahl steht erst nach der FL-Prüfung fest.
 
 ---
 
+# 4a. Prompt-Grammatik — Standardvorlagen
+
+Die Vorlagen hier sind copy-paste-fähig. Sie stehen unter den Regeln aus
+Abschnitt 4; wo sich beides widerspricht, gewinnt Abschnitt 4.
+
+## 4a.1 Style-Template
+
+```text
+Hard Tekk, 165 BPM, dark distorted kick, rolling bass, rave lead, psy movement, raw transitions, [Mastered for 48kHz], [High Dynamic Range], [Ultra-Clean Vocals], [Pre-amp: Balanced], [Headroom: High]
+```
+
+165 BPM ist der Projekt-Default. Nennt der Nutzer einen Trackwert, ersetzt
+dieser ihn — der Rest der Zeile bleibt unverändert.
+
+### Verifikationsstatus der Metatags
+
+Die eckigen Klammern am Ende — `[Mastered for 48kHz]`, `[High Dynamic Range]`,
+`[Ultra-Clean Vocals]`, `[Pre-amp: Balanced]`, `[Headroom: High]` — sind
+**unverifizierte Prompt-Konditionierung**, keine dokumentierten Suno-Regler.
+
+Was das praktisch heißt:
+
+- Sie sind freier Text im Style-Feld. Suno liest sie als Beschreibung, nicht
+  als Einstellung.
+- `[Mastered for 48kHz]` erzwingt **keine** 48-kHz-Ausgabe. Die tatsächliche
+  Sample-Rate der Datei entscheidet sich beim Export, nicht im Prompt, und
+  wird in FL Studio geprüft.
+- `[Ultra-Clean Vocals]` ist kein Garant für saubere Stimmen und hebt die
+  Vocal-Regeln aus Abschnitt 4 nicht auf.
+- Sie dürfen im Prompt stehen und schaden nicht. Sie dürfen dem Nutzer
+  gegenüber nie als zugesicherte technische Wirkung dargestellt werden.
+
+Wer belastbare 48 kHz und Headroom will, holt sie über den Export-Workflow
+in Abschnitt 4b und die FL-Studio-QC — nicht über Klammern im Prompt.
+
+## 4a.2 Lyrics-Template mit Struktur-Tags
+
+```text
+[Intro] (Instrumental)
+[Verse 1] (warm male lead vocal, close and restrained)
+[Chorus]
+[Bridge]
+[Outro] (Instrumental fade)
+```
+
+### Wann dieses Template gilt — und wann nicht
+
+Dies ist die **generische** Song-Struktur für Suno. Für einen SiCKaRiM-
+Track im Modus `SONG_NEW` oder `SONG_POLISH` gilt sie **nicht** unverändert,
+weil sie mit `[Verse 1]`, `[Chorus]` und `[Bridge]` drei singende Abschnitte
+vorsieht. Die Song-Vocal-Regel aus Abschnitt 4 erlaubt genau einen Hook.
+
+Daraus folgt die Vorrangregel:
+
+| Fall | Welches Template |
+|---|---|
+| SiCKaRiM-Track, Modus SONG_NEW / SONG_POLISH | Struktur aus Abschnitt 4 (DJ Intro → Build → Drop → **ein** Hook → Break → Build 2 → Drop 2 → DJ Outro), niemals dieses generische Template |
+| Generischer Suno-Track außerhalb des SiCKaRiM-Profils, ausdrücklich vom Nutzer verlangt | Template oben, mit den vom Nutzer gelieferten Lyrics |
+| Unklar | nachfragen, nicht raten |
+
+Die Klammerregie wie `(warm male lead vocal, close and restrained)` ist ein
+Beispiel für eine Stimmbeschreibung. Sie erfindet keine Lyrics und ersetzt
+keine: Text kommt ausschließlich vom Nutzer.
+
+Der `[Outro] (Instrumental fade)`-Tag ist zusätzlich für Bedingung D des
+Extend-Gates relevant — siehe 9.1a.
+
+## 4a.3 Production-Words statt Emotion-Words
+
+Prompts beschreiben, was im Signal passiert, nicht wie es sich anfühlen soll.
+Emotionsvokabular und Künstlernamen streuen das Ergebnis und machen zwei
+Renders schwer vergleichbar; technische Begriffe engen es ein.
+
+| Nicht verwenden | Stattdessen |
+|---|---|
+| epic, emotional, powerful, energetic, hypnotic feeling | distorted kick, rolling bass, sidechained pad, gated release |
+| dark and sad, aggressive mood | minor key, detuned saw, hard filter bite |
+| Künstler- oder Bandnamen, "im Stil von X" | die konkreten Klangmerkmale, die gemeint sind |
+| radio-ready, professional, banger | loud club mix, kick and sub locked, mid-forward stabs |
+
+Künstlernamen bleiben auch deshalb draußen, weil sie fremde Arbeit als
+Zielvorgabe benutzen. Die gewünschten Merkmale lassen sich benennen, ohne
+jemanden zu kopieren.
+
+## 4a.4 Style-String bei jedem Extend wiederholen
+
+Der Style-String des Quelltracks wird bei jedem Extend wortgleich
+übernommen. Kein Rewrite, keine Paraphrase, kein "leicht aufgeräumt".
+Das ist Bedingung B des Extend-Gates (9.1a) und dort begründet.
+
+## 4a.5 Metatag-Liste High-Fidelity
+
+| Metatag | Zweck laut Prompt-Praxis | Verifikationsstatus |
+|---|---|---|
+| `[Mastered for 48kHz]` | Sample-Rate-Hinweis | UNVERIFIED — kein dokumentierter Suno-Regler |
+| `[High Dynamic Range]` | weniger Kompression | UNVERIFIED |
+| `[Ultra-Clean Vocals]` | Artefaktarme Stimmen | UNVERIFIED |
+| `[Pre-amp: Balanced]` | ausgewogener Pegel | UNVERIFIED |
+| `[Headroom: High]` | Reserve vor 0 dBFS | UNVERIFIED |
+
+Alle fünf sind zulässig und dürfen zusammen im Style-Feld stehen. Keiner
+darf als zugesicherte Eigenschaft der Ausgabedatei ausgegeben werden. Was
+die Datei wirklich hat, steht erst nach dem Export und der FL-Studio-Prüfung
+fest.
+
+---
+
+# 4b. Export-Workflow
+
+## 4b.1 Workflow-Tabelle
+
+| Use Case | Export-Option | Format | Bit-Tiefe | Sample Rate |
+|---|---|---|---|---|
+| Final Master | Full Song | WAV | 32-bit | 48 kHz |
+| DJ-Set | Full Song | WAV + MP3 | 16-bit / 32-bit | 44.1 kHz / 48 kHz |
+| Remix / DAW | Multitrack | WAV (alle Stems) | 32-bit | 48 kHz |
+| Einzelne Spur | Individual Stem | WAV | 32-bit | 48 kHz |
+| MIDI-Weiterverarbeitung | Download as MIDI | MIDI | – | – |
+
+**Verifikationsstatus:** Die Tabelle ist die Ziel-Vorgabe des Projekts, keine
+Abschrift der Suno-Oberfläche. Welche Optionen, Bit-Tiefen und Sample-Rates
+Suno im Moment tatsächlich anbietet, ändert sich mit der Plattform — besonders
+`Download as MIDI` und die 32-bit-Option sind vor dem ersten Einsatz einmal
+am eigenen Account gegenzuprüfen. Bietet die Oberfläche etwas nicht an: die
+nächstbeste Option nehmen und das hier vermerken, nicht behaupten, es sei
+exportiert worden.
+
+## 4b.2 Wann welche Option
+
+**Final Master — Full Song, WAV, höchste verfügbare Qualität.**
+Für die Version, die archiviert wird und aus der alles andere abgeleitet
+wird. Immer zuerst ziehen, bevor irgendetwas anderes passiert: Alle weiteren
+Formate lassen sich daraus erzeugen, umgekehrt nicht.
+
+**DJ-Set — Full Song, WAV und MP3.**
+WAV geht nach Mixxx und in die FL-Studio-QC, MP3 als Platzsparer für
+Vorhör-Ordner und Mobilgeräte. 44.1 kHz nur, wenn die Zielumgebung es
+verlangt; wo beides geht, 48 kHz behalten und das Resampling der DAW
+überlassen statt Suno.
+
+**Remix / DAW — Multitrack, alle Stems.**
+Nur wenn der Track wirklich weiterverarbeitet wird. Ein vollständiger
+Stem-Satz kostet deutlich mehr Credits als ein Mixdown (siehe 4c) und
+erzeugt Dateien, die nach der HPSS-Prüfung aus Abschnitt 10 verlangen.
+
+**Einzelne Spur — Individual Stem.**
+Wenn nur ein Element gebraucht wird, etwa die Lead-Vocal für einen
+Library-Shout oder der Kick zum Ersetzen. Deutlich günstiger als der
+volle Split.
+
+**MIDI — nur für Weiterverarbeitung der Noten.**
+Für Bassläufe oder Leads, die in FL Studio mit eigenen Sounds neu gespielt
+werden. MIDI trägt keine Klangfarbe; wer den Suno-Sound will, braucht Audio.
+
+## 4b.3 Regeln für jeden Export
+
+1. Den Final Master zuerst ziehen und nie überschreiben. Jede Extend- oder
+   Remix-Version bekommt einen neuen Dateinamen mit Versionszähler.
+2. Bit-Tiefe und Sample-Rate der geladenen Datei in FL Studio prüfen, statt
+   sie aus der Export-Auswahl zu schließen — was im Dialog stand, muss nicht
+   in der Datei stehen.
+3. Stems erst prüfen, dann verwenden: `HPSS_STATUS` bleibt `CANDIDATE`, bis
+   die drei Checks aus Abschnitt 10 bestätigt sind.
+4. Keine WAVs, MP3s, Stems oder MIDI-Dateien ins Repository committen. Ins
+   Repo gehören nur die Validierungsblätter und Library-Einträge.
+
+---
+
+# 4c. Credits-Optimierung
+
+Credits sind die knappe Ressource. Die Regeln hier sparen sie, ohne die
+Prüfpflichten aus Abschnitt 6, 7 und 10 abzukürzen — gespart wird an
+überflüssigen Generierungen, nie an der Validierung.
+
+## 4c.1 Split-Entscheidung
+
+| Option | Kosten | Verwenden für |
+|---|---|---|
+| Auto Split | 50 Credits | nur wenn **≥ 8 Stems** wirklich gebraucht werden |
+| Split from Mix | 10 Credits | Practice-Beds und 2-Stem-Exporte (Vocal + Instrumental) |
+| Advanced Split | 10 Credits **pro Stem** | nur kritische Einzelinstrumente: Lead-Vocal, Kick, Bass |
+
+**Verifikationsstatus:** Die Credit-Zahlen stammen aus der Projektvorgabe des
+Nutzers, nicht aus einer geprüften Preisliste. Suno-Preise ändern sich. Vor
+einem teuren Split die aktuellen Kosten in der Oberfläche ablesen; weicht sie
+ab, gilt die Oberfläche und die Zahl hier ist zu korrigieren.
+
+Die Rechnung hinter der Schwelle: Advanced Split kostet 10 pro Stem, Auto
+Split pauschal 50. Ab dem sechsten Einzelstem wird Auto Split billiger,
+ab acht ist der Abstand deutlich genug, dass sich der volle Satz lohnt.
+Darunter gezielt einzeln splitten — auch weil weniger Stems weniger
+HPSS-Prüfaufwand nach Abschnitt 10 bedeuten.
+
+Vor jedem Split die Frage beantworten: **Welche Stems brauche ich wirklich,
+und wofür?** Ein vollständiger Satz "für alle Fälle" ist der häufigste
+Credit-Verlust, weil die meisten Stems nie in einem Projekt landen.
+
+## 4c.2 Alternates batchen
+
+Mehrere Takes in einem Durchgang erzeugen statt nacheinander einzeln. Zwei
+Gründe: Die Varianten sind untereinander vergleichbar, weil sie denselben
+Prompt-Stand teilen, und der Vergleich passiert in einer Hörsession statt
+in fünf.
+
+Praktisch heißt das: Prompt fertig durchdenken, dann generieren. Nicht nach
+jedem Take eine Kleinigkeit am Style ändern und neu erzeugen — dabei
+entstehen Varianten, die sich nicht mehr sauber gegeneinander bewerten
+lassen, und jeder Zwischenstand kostet.
+
+## 4c.3 Ein-Pass-Exit
+
+Ist ein Track download-würdig, alles in einem Zug herunterladen: WAV, MP3
+und die benötigten Stems zusammen.
+
+Der Grund ist nicht nur Bequemlichkeit. Wer später zurückkommt, findet
+mitunter eine veränderte Track-Liste, andere Optionen oder eine neue
+Modell-Version vor. Was jetzt in einem Durchgang gesichert ist, ist
+konsistent aus demselben Render.
+
+Vor dem Ein-Pass-Exit einmal die Export-Tabelle aus 4b.1 durchgehen und
+festlegen, welche Zeilen für diesen Track gelten. Danach herunterladen,
+nicht währenddessen entscheiden.
+
+## 4c.4 Was nicht gespart wird
+
+- Keine Prüfung überspringen, um Credits zu sparen. Ein ungeprüfter Track
+  im Set kostet mehr als ein Split.
+- Kein Extend als Ersatz für einen sauberen neuen Render, wenn der Quelltrack
+  driftet — das Extend erbt den Drift.
+- Kein Verzicht auf den Final Master, um einen Download zu sparen. Er ist
+  die Quelle für alles Weitere.
+
+---
+
 # 5. Suno Sounds Library Builder
 
 Pro Anfrage wird nur **ein** klarer Sound-Typ erzeugt. Mehrere
@@ -497,6 +731,105 @@ Bei `UNVALIDATED`, `ANALYSIS_PENDING`, `ANALYSIS_REVIEW_REQUIRED` oder
 ### REQUIRED_MIXXX_CHECK
 ```
 
+## 9.1a Die fünf Extend-Bedingungen
+
+Der Statuscheck aus 9.1 ist notwendig, aber nicht hinreichend. Ein Extend
+entsteht nur, wenn **alle fünf** Bedingungen erfüllt sind. Jede einzelne
+nicht erfüllte Bedingung blockiert.
+
+| # | Bedingung | Erfüllt, wenn | Nicht erfüllt → |
+|---|---|---|---|
+| A | Strukturvertrauen | `structure_confidence >= 0.85` im HPSS-Report ODER der Nutzer bestätigt die Struktur ausdrücklich | blockieren |
+| B | Style-String 1:1 | Der Style-String des Quelltracks wurde wortgleich übernommen, ohne Rewrite und ohne Paraphrase | blockieren |
+| C | Vocal Anchor | Die erste Gesangszeile des aktuellen Parts ist im Extend-Text wörtlich wiederholt — nur bei Vocal-Extends; bei instrumentalem Extend gilt die Bedingung als nicht anwendbar | blockieren, sofern anwendbar |
+| D | Längenfenster | Aktuelle Länge < 4:00 min ODER `[Outro]`-Tag fehlt noch | blockieren |
+| E | Menschliche Freigabe | Nutzer hat FL-Studio- **und** Mixxx-Check bestätigt; bis dahin gilt `MIXXX_READY: false` | blockieren |
+
+### Zu Bedingung A — `structure_confidence`
+
+`structure_confidence` ist ein Feld des HPSS-Reports aus
+`ThrivenArtConnect/hard-tekk-hpss-pipeline`, das die Zuverlässigkeit der
+erkannten Songstruktur als Zahl zwischen 0 und 1 angibt.
+
+Wichtig, damit hier keine Scheinsicherheit entsteht:
+
+- Fehlt das Feld im Report, ist es `null`, oder ist der Report nicht
+  lesbar, gilt Bedingung A als **nicht erfüllt**. Nie einen Wert schätzen,
+  nie aus `tempo.confidence` oder `beats.confidence` ableiten — das sind
+  andere Größen.
+- Ein hoher `structure_confidence` ersetzt Bedingung E nicht. A und E sind
+  eigenständige UND-Bedingungen: Der Maschinenwert darf die Struktur-Frage
+  beantworten, niemals die Frage, ob ein Mensch den Track am Grid geprüft hat.
+- Der Schwellwert 0.85 ist eine Projektfestlegung, kein von der Pipeline
+  vorgegebener Wert.
+
+### Zu Bedingung B — Style-String 1:1
+
+Suno konditioniert die Fortsetzung auf den Style-String. Wird er
+umformuliert, driftet der Extend hörbar vom Quelltrack weg, auch wenn die
+Umformulierung inhaltlich dasselbe meint. Deshalb: kopieren, nicht
+neu schreiben. Auch nicht "leicht aufräumen".
+
+Soll der Style bewusst geändert werden, ist das kein Extend im Sinne dieses
+Skills — dann ist es ein neuer Track oder ein `REPLACEMENT_SECTION`, und der
+Nutzer muss die Änderung ausdrücklich anweisen.
+
+### Zu Bedingung C — Vocal Anchor
+
+Bei einem Vocal-Extend wird die erste Gesangszeile des aktuellen Parts
+wörtlich an den Anfang des Extend-Textes gesetzt. Sie dient Suno als
+Anker für Stimmfarbe und Phrasierung.
+
+Zwei Einschränkungen:
+
+- Der Anker ist eine Wiederholung bereits vorhandener, vom Nutzer
+  gelieferter Lyrics. Er ist **keine** Lizenz, neue Lyrics zu erfinden.
+- Bei einem instrumentalen Extend — dem Regelfall für DJ-Outro, Drop 2 und
+  Break — gibt es keine Gesangszeile. Dann ist Bedingung C nicht anwendbar
+  und blockiert nicht. Das ausdrücklich so vermerken, statt sie stillschweigend
+  als erfüllt zu behandeln.
+
+### Zu Bedingung D — Längenfenster
+
+Die aktuelle Länge stammt aus der Datei oder aus einer ausdrücklichen
+Nutzerangabe, nie aus einer Schätzung. Ist sie unbekannt, gilt D als nicht
+erfüllt.
+
+Der Sinn: Ein Track jenseits von 4:00 min mit gesetztem `[Outro]` ist
+arrangementseitig abgeschlossen. Ein Extend hängt dort meist einen zweiten
+Schluss an, statt den Track zu verlängern.
+
+## 9.1b Ausgabe der Bedingungsprüfung
+
+Jede Extend-Anfrage gibt die Prüfung sichtbar aus, auch wenn sie durchgeht.
+So sieht der Nutzer, worauf die Entscheidung beruht:
+
+```
+### EXTEND_CONDITION_CHECK
+
+| # | Bedingung | Status | Evidenz |
+|---|---|---|---|
+| A | structure_confidence >= 0.85 oder menschliche Bestätigung | MET / NOT MET / NOT PROVIDED | <Quelle> |
+| B | Style-String 1:1 übernommen | MET / NOT MET | <Quelle> |
+| C | Vocal anchor wiederholt | MET / NOT MET / NOT APPLICABLE | <Quelle> |
+| D | Länge < 4:00 min oder [Outro] fehlt | MET / NOT MET / NOT PROVIDED | <Quelle> |
+| E | FL Studio und Mixxx vom Menschen bestätigt | MET / NOT MET | <Quelle> |
+```
+
+Ergebnis:
+
+- **Alle fünf erfüllt** (C darf `NOT APPLICABLE` sein) → `EXTEND_STATUS: EXTEND_ALLOWED`,
+  Extend-Paket nach 9.5 erzeugen.
+- **Mindestens eine nicht erfüllt** → `EXTEND_STATUS: EXTEND_BLOCKED`,
+  Ausgabe nach 9.1, und in `MISSING_EXTEND_EVIDENCE` jede nicht erfüllte
+  Bedingung mit Begründung nennen — nicht nur auflisten, sondern sagen,
+  welche konkrete Angabe fehlt und woher sie kommt.
+
+`EXTEND_ALLOWED` und `EXTEND_BLOCKED` sind Entscheidungen über eine einzelne
+Extend-Anfrage, keine Track-Stati. Der `TRACK_STATUS` aus Abschnitt 3 bleibt
+davon unberührt: Er ändert sich erst durch neue menschliche Evidenz, nie
+dadurch, dass eine Extend-Prüfung durchgeht.
+
 ## 9.2 Pflichtdaten für Extend
 
 Diese Werte müssen explizit vom Nutzer geliefert oder in einer bestätigten
@@ -687,6 +1020,63 @@ Sie darf niemals automatisch setzen:
 
 Maximal zulässiger automatischer Status: `ANALYSIS_REVIEW_REQUIRED`.
 
+## HPSS_STATUS — eigene Statusachse für Stems
+
+`HPSS_STATUS` beschreibt den Zustand der **Stems** aus der Pipeline.
+`TRACK_STATUS` aus Abschnitt 3 beschreibt den Zustand des **Songs**. Beide
+laufen getrennt und dürfen nie gegeneinander verrechnet werden: geprüfte
+Stems machen keinen geprüften Song, und ein `MIXXX_READY`-Song sagt nichts
+über die Stems.
+
+Um die Verwechslung im Text zu vermeiden, wird der Stem-Status immer mit
+Präfix geschrieben: `HPSS_STATUS: MIXXX_READY`, nie bloß `MIXXX_READY`.
+
+### HPSS_STATUS: CANDIDATE
+
+Der Startzustand jedes Reports und jedes Stem-Satzes. Alle Werte sind
+Kandidaten, nichts ist bestätigt. Bleibt so, bis alle drei Checks unten
+erfüllt sind.
+
+### HPSS_STATUS: MIXXX_READY
+
+Nur erreichbar, wenn **alle drei** Checks erfüllt und vom Nutzer bestätigt sind:
+
+| # | Check | Erfüllt, wenn |
+|---|---|---|
+| 1 | FL Studio | Stems als 32-bit / 48 kHz exportiert und in der Playlist geladen |
+| 2 | Mixxx | Stems importiert, BPM- und Key-Sync geprüft, keine Phasenprobleme |
+| 3 | Mensch | Nutzer bestätigt beide Checks ausdrücklich |
+
+Check 3 ist keine Formalie, sondern die eigentliche Bedingung: Der Skill
+sieht die Stems nicht und hört sie nicht. Ohne die ausdrückliche Bestätigung
+bleibt der Status `CANDIDATE`, auch wenn der Nutzer Check 1 und 2 beschreibt.
+Ein HPSS-Report allein hebt den Status nie an.
+
+### HPSS_STATUS: FAILED
+
+Zu setzen, sobald einer dieser Befunde vorliegt:
+
+| Befund | Kriterium |
+|---|---|
+| Vocal-Bleed im Drum-Stem | > 5 % — objektiv gemessen oder vom Nutzer klar hörbar berichtet |
+| Phasenprobleme Kick/Bass | Kick verliert im Zusammenspiel mit dem Bass hörbar Punch |
+
+Zur 5-%-Schwelle: Sie ist eine Projektfestlegung. Der Skill misst nichts
+selbst — er übernimmt entweder einen gemessenen Wert aus dem Report oder die
+Höreinschätzung des Nutzers. Liegt keins von beidem vor, ist der Befund
+`NOT ASSESSED`, nicht "unter der Schwelle".
+
+`FAILED` ist kein Endzustand: Nach einem neuen Split oder korrigierten
+Export beginnt die Prüfung wieder bei `CANDIDATE`.
+
+### Was HPSS_STATUS niemals darf
+
+- Sich selbst von `CANDIDATE` hochsetzen.
+- `TRACK_STATUS` verändern — auch `HPSS_STATUS: MIXXX_READY` gibt kein
+  Extend frei und erfüllt Bedingung E aus 9.1a nicht.
+- Als "final", "fertig" oder "abgenommen" bezeichnet werden, solange die
+  menschliche Bestätigung fehlt.
+
 ## Verhalten bei vorliegendem HPSS-Report
 
 Wenn ein valider HPSS-JSON-Report existiert:
@@ -853,8 +1243,11 @@ fehlgeschlagener Report. Nur die Inhalte unterscheiden sich, die Blöcke nicht.
 
 ## Extend blockiert
 
+Vorangestellt immer `### EXTEND_CONDITION_CHECK` nach Abschnitt 9.1b.
+
 ```
 ### TRACK_STATUS
+### EXTEND_CONDITION_CHECK
 ### EXTEND_BLOCKED
 ### MISSING_EXTEND_EVIDENCE
 ### REQUIRED_FL_STUDIO_CHECK
@@ -863,8 +1256,11 @@ fehlgeschlagener Report. Nur die Inhalte unterscheiden sich, die Blöcke nicht.
 
 ## Extend erlaubt
 
+Vorangestellt immer `### EXTEND_CONDITION_CHECK` nach Abschnitt 9.1b.
+
 ```
 ### TRACK_STATUS
+### EXTEND_CONDITION_CHECK
 ### CONFIRMED_CONTEXT
 ### SUNO_EXTEND_STYLE
 ### SUNO_EXTEND_LYRICS_OR_CUES
