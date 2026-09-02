@@ -437,6 +437,72 @@ werden. MIDI trägt keine Klangfarbe; wer den Suno-Sound will, braucht Audio.
 
 ---
 
+# 4c. Credits-Optimierung
+
+Credits sind die knappe Ressource. Die Regeln hier sparen sie, ohne die
+Prüfpflichten aus Abschnitt 6, 7 und 10 abzukürzen — gespart wird an
+überflüssigen Generierungen, nie an der Validierung.
+
+## 4c.1 Split-Entscheidung
+
+| Option | Kosten | Verwenden für |
+|---|---|---|
+| Auto Split | 50 Credits | nur wenn **≥ 8 Stems** wirklich gebraucht werden |
+| Split from Mix | 10 Credits | Practice-Beds und 2-Stem-Exporte (Vocal + Instrumental) |
+| Advanced Split | 10 Credits **pro Stem** | nur kritische Einzelinstrumente: Lead-Vocal, Kick, Bass |
+
+**Verifikationsstatus:** Die Credit-Zahlen stammen aus der Projektvorgabe des
+Nutzers, nicht aus einer geprüften Preisliste. Suno-Preise ändern sich. Vor
+einem teuren Split die aktuellen Kosten in der Oberfläche ablesen; weicht sie
+ab, gilt die Oberfläche und die Zahl hier ist zu korrigieren.
+
+Die Rechnung hinter der Schwelle: Advanced Split kostet 10 pro Stem, Auto
+Split pauschal 50. Ab dem sechsten Einzelstem wird Auto Split billiger,
+ab acht ist der Abstand deutlich genug, dass sich der volle Satz lohnt.
+Darunter gezielt einzeln splitten — auch weil weniger Stems weniger
+HPSS-Prüfaufwand nach Abschnitt 10 bedeuten.
+
+Vor jedem Split die Frage beantworten: **Welche Stems brauche ich wirklich,
+und wofür?** Ein vollständiger Satz "für alle Fälle" ist der häufigste
+Credit-Verlust, weil die meisten Stems nie in einem Projekt landen.
+
+## 4c.2 Alternates batchen
+
+Mehrere Takes in einem Durchgang erzeugen statt nacheinander einzeln. Zwei
+Gründe: Die Varianten sind untereinander vergleichbar, weil sie denselben
+Prompt-Stand teilen, und der Vergleich passiert in einer Hörsession statt
+in fünf.
+
+Praktisch heißt das: Prompt fertig durchdenken, dann generieren. Nicht nach
+jedem Take eine Kleinigkeit am Style ändern und neu erzeugen — dabei
+entstehen Varianten, die sich nicht mehr sauber gegeneinander bewerten
+lassen, und jeder Zwischenstand kostet.
+
+## 4c.3 Ein-Pass-Exit
+
+Ist ein Track download-würdig, alles in einem Zug herunterladen: WAV, MP3
+und die benötigten Stems zusammen.
+
+Der Grund ist nicht nur Bequemlichkeit. Wer später zurückkommt, findet
+mitunter eine veränderte Track-Liste, andere Optionen oder eine neue
+Modell-Version vor. Was jetzt in einem Durchgang gesichert ist, ist
+konsistent aus demselben Render.
+
+Vor dem Ein-Pass-Exit einmal die Export-Tabelle aus 4b.1 durchgehen und
+festlegen, welche Zeilen für diesen Track gelten. Danach herunterladen,
+nicht währenddessen entscheiden.
+
+## 4c.4 Was nicht gespart wird
+
+- Keine Prüfung überspringen, um Credits zu sparen. Ein ungeprüfter Track
+  im Set kostet mehr als ein Split.
+- Kein Extend als Ersatz für einen sauberen neuen Render, wenn der Quelltrack
+  driftet — das Extend erbt den Drift.
+- Kein Verzicht auf den Final Master, um einen Download zu sparen. Er ist
+  die Quelle für alles Weitere.
+
+---
+
 # 5. Suno Sounds Library Builder
 
 Pro Anfrage wird nur **ein** klarer Sound-Typ erzeugt. Mehrere
