@@ -1,0 +1,1278 @@
+{
+  "name": "mixer_snapshot_01",
+  "created": "2026-09-23T08:14:19Z",
+  "tracks": {
+    "1": {
+      "name": "Kick_Sub_808",
+      "volume": 0.7999999998137355,
+      "pan": 0,
+      "slots": {
+        "0": {
+          "plugin_name": "Fruity Parametric EQ 2",
+          "params": [
+            {
+              "index": 0,
+              "name": "Band 1 Lautstärke",
+              "value": 0.5047222222222222,
+              "value_string": "0.2dB"
+            },
+            {
+              "index": 1,
+              "name": "Band 2 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 2,
+              "name": "Band 3 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 3,
+              "name": "Band 4 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 4,
+              "name": "Band 5 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 5,
+              "name": "Band 6 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 6,
+              "name": "Band 7 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 7,
+              "name": "Band 1 Frequenz",
+              "value": 0.2467803955078125,
+              "value_string": "110Hz"
+            },
+            {
+              "index": 8,
+              "name": "Band 2 Frequenz",
+              "value": 0.27777099609375,
+              "value_string": "136Hz"
+            },
+            {
+              "index": 9,
+              "name": "Band 3 Frequenz",
+              "value": 0.388885498046875,
+              "value_string": "294Hz"
+            },
+            {
+              "index": 10,
+              "name": "Band 4 Frequenz",
+              "value": 0.5,
+              "value_string": "632Hz"
+            },
+            {
+              "index": 11,
+              "name": "Band 5 Frequenz",
+              "value": 0.611114501953125,
+              "value_string": "1363Hz"
+            },
+            {
+              "index": 12,
+              "name": "Band 6 Frequenz",
+              "value": 0.72222900390625,
+              "value_string": "2936Hz"
+            },
+            {
+              "index": 13,
+              "name": "Band 7 Frequenz",
+              "value": 0.8333282470703125,
+              "value_string": "6324Hz"
+            },
+            {
+              "index": 14,
+              "name": "Band 1 Breite",
+              "value": 0.6060943603515625,
+              "value_string": "61%"
+            },
+            {
+              "index": 15,
+              "name": "Band 2 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 16,
+              "name": "Band 3 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 17,
+              "name": "Band 4 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 18,
+              "name": "Band 5 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 19,
+              "name": "Band 6 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 20,
+              "name": "Band 7 Breite",
+              "value": 0.61224365234375,
+              "value_string": "61%"
+            },
+            {
+              "index": 21,
+              "name": "Band 1 Typ",
+              "value": 0.14285714285714285,
+              "value_string": "Low pass"
+            },
+            {
+              "index": 22,
+              "name": "Band 2 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 23,
+              "name": "Band 3 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 24,
+              "name": "Band 4 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 25,
+              "name": "Band 5 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 26,
+              "name": "Band 6 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 27,
+              "name": "Band 7 Typ",
+              "value": 1,
+              "value_string": "High shelf"
+            },
+            {
+              "index": 28,
+              "name": "Band 1 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 29,
+              "name": "Band 2 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 30,
+              "name": "Band 3 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 31,
+              "name": "Band 4 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 32,
+              "name": "Band 5 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 33,
+              "name": "Band 6 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 34,
+              "name": "Band 7 Frequenz",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 35,
+              "name": "Haupt-Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            }
+          ]
+        },
+        "1": {
+          "plugin_name": "Fruity Soft Clipper",
+          "params": [
+            {
+              "index": 0,
+              "name": "Schwellenwert",
+              "value": 0.7857142857142857,
+              "value_string": "-4.4dB"
+            },
+            {
+              "index": 1,
+              "name": "Post-Lautstärke",
+              "value": 0.8,
+              "value_string": "80%"
+            }
+          ]
+        }
+      }
+    },
+    "2": {
+      "name": "Kick_Punch_A-B",
+      "volume": 0.8054999997839332,
+      "pan": 0,
+      "slots": {
+        "0": {
+          "plugin_name": "Fruity Parametric EQ 2",
+          "params": [
+            {
+              "index": 0,
+              "name": "Band 1 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 1,
+              "name": "Band 2 Lautstärke",
+              "value": 0.6111111111111112,
+              "value_string": "4.0dB"
+            },
+            {
+              "index": 2,
+              "name": "Band 3 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 3,
+              "name": "Band 4 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 4,
+              "name": "Band 5 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 5,
+              "name": "Band 6 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 6,
+              "name": "Band 7 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 7,
+              "name": "Band 1 Frequenz",
+              "value": 0.1666717529296875,
+              "value_string": "63Hz"
+            },
+            {
+              "index": 8,
+              "name": "Band 2 Frequenz",
+              "value": 0.7253570556640625,
+              "value_string": "3000Hz"
+            },
+            {
+              "index": 9,
+              "name": "Band 3 Frequenz",
+              "value": 0.388885498046875,
+              "value_string": "294Hz"
+            },
+            {
+              "index": 10,
+              "name": "Band 4 Frequenz",
+              "value": 0.5,
+              "value_string": "632Hz"
+            },
+            {
+              "index": 11,
+              "name": "Band 5 Frequenz",
+              "value": 0.611114501953125,
+              "value_string": "1363Hz"
+            },
+            {
+              "index": 12,
+              "name": "Band 6 Frequenz",
+              "value": 0.72222900390625,
+              "value_string": "2936Hz"
+            },
+            {
+              "index": 13,
+              "name": "Band 7 Frequenz",
+              "value": 0.8333282470703125,
+              "value_string": "6324Hz"
+            },
+            {
+              "index": 14,
+              "name": "Band 1 Breite",
+              "value": 0.61224365234375,
+              "value_string": "61%"
+            },
+            {
+              "index": 15,
+              "name": "Band 2 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 16,
+              "name": "Band 3 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 17,
+              "name": "Band 4 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 18,
+              "name": "Band 5 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 19,
+              "name": "Band 6 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 20,
+              "name": "Band 7 Breite",
+              "value": 0.61224365234375,
+              "value_string": "61%"
+            },
+            {
+              "index": 21,
+              "name": "Band 1 Typ",
+              "value": 0.7142857142857143,
+              "value_string": "Low shelf"
+            },
+            {
+              "index": 22,
+              "name": "Band 2 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 23,
+              "name": "Band 3 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 24,
+              "name": "Band 4 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 25,
+              "name": "Band 5 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 26,
+              "name": "Band 6 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 27,
+              "name": "Band 7 Typ",
+              "value": 1,
+              "value_string": "High shelf"
+            },
+            {
+              "index": 28,
+              "name": "Band 1 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 29,
+              "name": "Band 2 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 30,
+              "name": "Band 3 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 31,
+              "name": "Band 4 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 32,
+              "name": "Band 5 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 33,
+              "name": "Band 6 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 34,
+              "name": "Band 7 Frequenz",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 35,
+              "name": "Haupt-Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            }
+          ]
+        },
+        "1": {
+          "plugin_name": null,
+          "params": []
+        }
+      }
+    },
+    "3": {
+      "name": "Kick_Distorted_Raw",
+      "volume": 0.7335625002160668,
+      "pan": 0,
+      "slots": {
+        "0": {
+          "plugin_name": "Fruity Fast Dist",
+          "params": [
+            {
+              "index": 0,
+              "name": "Pre amp",
+              "value": 1,
+              "value_string": "100%"
+            },
+            {
+              "index": 1,
+              "name": "Schwellenwert",
+              "value": 0.6666666666666666,
+              "value_string": "70%"
+            },
+            {
+              "index": 2,
+              "name": "Verzerrungs-Typ",
+              "value": 0,
+              "value_string": "A"
+            },
+            {
+              "index": 3,
+              "name": "Mix-Pegel",
+              "value": 0.796875,
+              "value_string": "80%"
+            },
+            {
+              "index": 4,
+              "name": "Post-Lautstärke",
+              "value": 0.8359375,
+              "value_string": "84%"
+            }
+          ]
+        },
+        "1": {
+          "plugin_name": "Fruity Parametric EQ 2",
+          "params": [
+            {
+              "index": 0,
+              "name": "Band 1 Lautstärke",
+              "value": 0.3333333333333333,
+              "value_string": "-6.0dB"
+            },
+            {
+              "index": 1,
+              "name": "Band 2 Lautstärke",
+              "value": 0.6388888888888888,
+              "value_string": "5.0dB"
+            },
+            {
+              "index": 2,
+              "name": "Band 3 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 3,
+              "name": "Band 4 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 4,
+              "name": "Band 5 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 5,
+              "name": "Band 6 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 6,
+              "name": "Band 7 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 7,
+              "name": "Band 1 Frequenz",
+              "value": 0.4336700439453125,
+              "value_string": "400Hz"
+            },
+            {
+              "index": 8,
+              "name": "Band 2 Frequenz",
+              "value": 0.20068359375,
+              "value_string": "80Hz"
+            },
+            {
+              "index": 9,
+              "name": "Band 3 Frequenz",
+              "value": 0.388885498046875,
+              "value_string": "294Hz"
+            },
+            {
+              "index": 10,
+              "name": "Band 4 Frequenz",
+              "value": 0.5,
+              "value_string": "632Hz"
+            },
+            {
+              "index": 11,
+              "name": "Band 5 Frequenz",
+              "value": 0.611114501953125,
+              "value_string": "1363Hz"
+            },
+            {
+              "index": 12,
+              "name": "Band 6 Frequenz",
+              "value": 0.72222900390625,
+              "value_string": "2936Hz"
+            },
+            {
+              "index": 13,
+              "name": "Band 7 Frequenz",
+              "value": 0.8333282470703125,
+              "value_string": "6324Hz"
+            },
+            {
+              "index": 14,
+              "name": "Band 1 Breite",
+              "value": 0.61224365234375,
+              "value_string": "61%"
+            },
+            {
+              "index": 15,
+              "name": "Band 2 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 16,
+              "name": "Band 3 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 17,
+              "name": "Band 4 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 18,
+              "name": "Band 5 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 19,
+              "name": "Band 6 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 20,
+              "name": "Band 7 Breite",
+              "value": 0.61224365234375,
+              "value_string": "61%"
+            },
+            {
+              "index": 21,
+              "name": "Band 1 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 22,
+              "name": "Band 2 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 23,
+              "name": "Band 3 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 24,
+              "name": "Band 4 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 25,
+              "name": "Band 5 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 26,
+              "name": "Band 6 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 27,
+              "name": "Band 7 Typ",
+              "value": 1,
+              "value_string": "High shelf"
+            },
+            {
+              "index": 28,
+              "name": "Band 1 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 29,
+              "name": "Band 2 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 30,
+              "name": "Band 3 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 31,
+              "name": "Band 4 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 32,
+              "name": "Band 5 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 33,
+              "name": "Band 6 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 34,
+              "name": "Band 7 Frequenz",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 35,
+              "name": "Haupt-Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            }
+          ]
+        }
+      }
+    },
+    "4": {
+      "name": "Kick_Tekk_Bounce",
+      "volume": 0.6420625001192093,
+      "pan": 0,
+      "slots": {
+        "0": {
+          "plugin_name": "Fruity Blood Overdrive",
+          "params": [
+            {
+              "index": 0,
+              "name": "Band 1 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 1,
+              "name": "Band 2 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 2,
+              "name": "Band 3 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 3,
+              "name": "Band 4 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 4,
+              "name": "Band 5 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 5,
+              "name": "Band 6 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 6,
+              "name": "Band 7 Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            },
+            {
+              "index": 7,
+              "name": "Band 1 Frequenz",
+              "value": 0.1666717529296875,
+              "value_string": "63Hz"
+            },
+            {
+              "index": 8,
+              "name": "Band 2 Frequenz",
+              "value": 0.27777099609375,
+              "value_string": "136Hz"
+            },
+            {
+              "index": 9,
+              "name": "Band 3 Frequenz",
+              "value": 0.388885498046875,
+              "value_string": "294Hz"
+            },
+            {
+              "index": 10,
+              "name": "Band 4 Frequenz",
+              "value": 0.5,
+              "value_string": "632Hz"
+            },
+            {
+              "index": 11,
+              "name": "Band 5 Frequenz",
+              "value": 0.611114501953125,
+              "value_string": "1363Hz"
+            },
+            {
+              "index": 12,
+              "name": "Band 6 Frequenz",
+              "value": 0.72222900390625,
+              "value_string": "2936Hz"
+            },
+            {
+              "index": 13,
+              "name": "Band 7 Frequenz",
+              "value": 0.8333282470703125,
+              "value_string": "6324Hz"
+            },
+            {
+              "index": 14,
+              "name": "Band 1 Breite",
+              "value": 0.61224365234375,
+              "value_string": "61%"
+            },
+            {
+              "index": 15,
+              "name": "Band 2 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 16,
+              "name": "Band 3 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 17,
+              "name": "Band 4 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 18,
+              "name": "Band 5 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 19,
+              "name": "Band 6 Breite",
+              "value": 0.38775634765625,
+              "value_string": "39%"
+            },
+            {
+              "index": 20,
+              "name": "Band 7 Breite",
+              "value": 0.61224365234375,
+              "value_string": "61%"
+            },
+            {
+              "index": 21,
+              "name": "Band 1 Typ",
+              "value": 0.7142857142857143,
+              "value_string": "Low shelf"
+            },
+            {
+              "index": 22,
+              "name": "Band 2 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 23,
+              "name": "Band 3 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 24,
+              "name": "Band 4 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 25,
+              "name": "Band 5 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 26,
+              "name": "Band 6 Typ",
+              "value": 0.8571428571428571,
+              "value_string": "Peaking"
+            },
+            {
+              "index": 27,
+              "name": "Band 7 Typ",
+              "value": 1,
+              "value_string": "High shelf"
+            },
+            {
+              "index": 28,
+              "name": "Band 1 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 29,
+              "name": "Band 2 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 30,
+              "name": "Band 3 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 31,
+              "name": "Band 4 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 32,
+              "name": "Band 5 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 33,
+              "name": "Band 6 Ordnung",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 34,
+              "name": "Band 7 Frequenz",
+              "value": 0.5,
+              "value_string": "2"
+            },
+            {
+              "index": 35,
+              "name": "Haupt-Lautstärke",
+              "value": 0.5,
+              "value_string": "0.0dB"
+            }
+          ]
+        },
+        "1": {
+          "plugin_name": "Fruity Delay 3",
+          "params": [
+            {
+              "index": 0,
+              "name": "Pre-Band",
+              "value": 0,
+              "value_string": "0.0000"
+            },
+            {
+              "index": 1,
+              "name": "Farbe",
+              "value": 0.4,
+              "value_string": "0.4000"
+            },
+            {
+              "index": 2,
+              "name": "Pre amp",
+              "value": 0.25,
+              "value_string": "0.2500"
+            },
+            {
+              "index": 3,
+              "name": "x100",
+              "value": 0,
+              "value_string": "Off"
+            },
+            {
+              "index": 4,
+              "name": "Post-Filter",
+              "value": 0,
+              "value_string": "0.0000"
+            },
+            {
+              "index": 5,
+              "name": "Post-Lautstärke",
+              "value": 1,
+              "value_string": "0.0000"
+            }
+          ]
+        }
+      }
+    },
+    "5": {
+      "name": "Kick_Psy_Movement",
+      "volume": 0.7999999998137355,
+      "pan": 0,
+      "slots": {
+        "0": {
+          "plugin_name": "Fruity Parametric EQ 2",
+          "params": [
+            {
+              "index": 0,
+              "name": "Wet Eingabe",
+              "value": 1,
+              "value_string": "100.0%"
+            },
+            {
+              "index": 1,
+              "name": "Delay-Typ",
+              "value": 0.6666666666666666,
+              "value_string": "Ping Pong"
+            },
+            {
+              "index": 2,
+              "name": "Tempo-Synchronisation",
+              "value": 1,
+              "value_string": "On"
+            },
+            {
+              "index": 3,
+              "name": "Tonhöhe behalten",
+              "value": 0,
+              "value_string": "Off"
+            },
+            {
+              "index": 4,
+              "name": "Zeit",
+              "value": 0.09256844850065189,
+              "value_string": "1:24"
+            },
+            {
+              "index": 5,
+              "name": "Delay time R/L pan",
+              "value": 0.5,
+              "value_string": "0.0%"
+            },
+            {
+              "index": 6,
+              "name": "Zeitglättung",
+              "value": 0.5,
+              "value_string": "50.0%"
+            },
+            {
+              "index": 7,
+              "name": "Stereoverbreitung",
+              "value": 1,
+              "value_string": "100.0%"
+            },
+            {
+              "index": 8,
+              "name": "Modulationsrate",
+              "value": 0.5,
+              "value_string": "1.1Hz"
+            },
+            {
+              "index": 9,
+              "name": "Modulationszeit",
+              "value": 0,
+              "value_string": "0.0%"
+            },
+            {
+              "index": 10,
+              "name": "Modulationscutoff",
+              "value": 0,
+              "value_string": "0.0%"
+            },
+            {
+              "index": 11,
+              "name": "Diffusions-Pegel",
+              "value": 0,
+              "value_string": "0.0%"
+            },
+            {
+              "index": 12,
+              "name": "Diffusionsausbreitung",
+              "value": 0.5,
+              "value_string": "50.0%"
+            },
+            {
+              "index": 13,
+              "name": "Verzerrungs-Typ",
+              "value": 0,
+              "value_string": "Limit"
+            },
+            {
+              "index": 14,
+              "name": "Feedback-Pegel",
+              "value": 0.25,
+              "value_string": "31.2%"
+            },
+            {
+              "index": 15,
+              "name": "Filter-Modus",
+              "value": 1,
+              "value_string": "OFF"
+            },
+            {
+              "index": 16,
+              "name": "Feedback Cutoff",
+              "value": 0.5,
+              "value_string": "1299.6Hz"
+            },
+            {
+              "index": 17,
+              "name": "Feedback-Resonanz",
+              "value": 0.5,
+              "value_string": "50.0%"
+            },
+            {
+              "index": 18,
+              "name": "Verzerrung",
+              "value": 0,
+              "value_string": "0.0%"
+            },
+            {
+              "index": 19,
+              "name": "Verzerrung",
+              "value": 0,
+              "value_string": "0.0%"
+            },
+            {
+              "index": 20,
+              "name": "Verzerrung",
+              "value": 0,
+              "value_string": "0.0%"
+            },
+            {
+              "index": 21,
+              "name": "Sampleraten-Reduktion",
+              "value": 1,
+              "value_string": "Max Hz"
+            },
+            {
+              "index": 22,
+              "name": "Bit-Reduktion",
+              "value": 1,
+              "value_string": "Max bits"
+            },
+            {
+              "index": 23,
+              "name": "Wet Ausgabe",
+              "value": 0.15,
+              "value_string": "15.0%"
+            },
+            {
+              "index": 24,
+              "name": "Ausgabeton",
+              "value": 0.5,
+              "value_string": "0.0%"
+            },
+            {
+              "index": 25,
+              "name": "Dry Ausgang\r\n",
+              "value": 1,
+              "value_string": "100.0%"
+            }
+          ]
+        },
+        "1": {
+          "plugin_name": "Fruity Reeverb 2",
+          "params": [
+            {
+              "index": 0,
+              "name": "Low cut",
+              "value": 0.02717208990271721,
+              "value_string": "100Hz"
+            },
+            {
+              "index": 1,
+              "name": "High cut",
+              "value": 0.14351851851851852,
+              "value_string": "3.6kHz"
+            },
+            {
+              "index": 2,
+              "name": "Pre-Delay",
+              "value": 0,
+              "value_string": "0ms"
+            },
+            {
+              "index": 3,
+              "name": "Raumgröße",
+              "value": 0.04040404040404041,
+              "value_string": "5"
+            },
+            {
+              "index": 4,
+              "name": "Diffusion",
+              "value": 1,
+              "value_string": "100"
+            },
+            {
+              "index": 5,
+              "name": "Decay-Zeit",
+              "value": 0.05527638190954774,
+              "value_string": "1.2sec"
+            },
+            {
+              "index": 6,
+              "name": "Höhen dämpfen",
+              "value": 0.14351851851851852,
+              "value_string": "3.6kHz"
+            },
+            {
+              "index": 7,
+              "name": "Bass-Multiplikator",
+              "value": 0.2857142857142857,
+              "value_string": "100%"
+            },
+            {
+              "index": 8,
+              "name": "Crossover",
+              "value": 0.15443037974683543,
+              "value_string": "330Hz"
+            },
+            {
+              "index": 9,
+              "name": "Stereo-Separation",
+              "value": 0.5,
+              "value_string": "Original"
+            },
+            {
+              "index": 10,
+              "name": "Dry Pegel",
+              "value": 0.8,
+              "value_string": "100%"
+            },
+            {
+              "index": 11,
+              "name": "Frühe Reflexionspegel",
+              "value": 0.8,
+              "value_string": "100%"
+            },
+            {
+              "index": 12,
+              "name": "Wet-Pegel",
+              "value": 0.08125,
+              "value_string": "10%"
+            },
+            {
+              "index": 13,
+              "name": "Modulations-Geschwindigkeit",
+              "value": 0.333984375,
+              "value_string": "33%"
+            },
+            {
+              "index": 14,
+              "name": "Modulations-Tiefe",
+              "value": 0,
+              "value_string": "0%"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
