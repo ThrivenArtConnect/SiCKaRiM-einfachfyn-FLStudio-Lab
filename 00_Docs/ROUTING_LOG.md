@@ -22,3 +22,11 @@ Notiz: [Freitext]
 ---
 
 *(Noch leer – wird ab M1 befüllt)*
+
+## 2026-09-25 – M2 Planung finalisiert
+- Plugin-Inventar bestätigt (Signature Bundle)
+- LFOTool bestätigt installiert
+- Channel-Rack 19 Slots geplant
+- FX-Chains alle Busse definiert
+- Repo-Check: Kick/ enthält 7 .fst für 5 Konzepte (s. M2_MIXER_TEMPLATE_PLAN.md)
+- Nächster Schritt: Mixer-Template in FL Studio bauen
